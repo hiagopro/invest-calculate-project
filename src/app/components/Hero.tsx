@@ -1,9 +1,9 @@
 "use client"
 import React, { useState } from "react";
-
+import Result from "./Result";
 // import { Container } from './styles';
 
-const Hero: React.FC = () => {
+const Hero: React.FC = ({setResult, result}) => {
   const [investmentInitial, setInvestmentInitial] = useState(0);
   const [investmentMonthly, setInvestmentMonthly] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -11,6 +11,9 @@ const Hero: React.FC = () => {
   const [rate, setRate] = useState(0);
   const [typeInvest,setTypeInvest] = useState('')
   const [preorpos, setPreorpos] = useState('')
+  const [resultOn, setResultOn] = useState(false)
+ 
+  let  futureValue
   const handlecalculate = (e: React.FormEvent) => {
     e.preventDefault()
     console.log(investmentInitial)
@@ -20,11 +23,11 @@ const Hero: React.FC = () => {
     const monthlyRate = rate / 100 / 12;
 
     
-    const futureValue = investmentInitial * Math.pow(1 + monthlyRate, totalMonths) +
+     futureValue = investmentInitial * Math.pow(1 + monthlyRate, totalMonths) +
                         investmentMonthly * ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate);
 
-
-    console.log(futureValue.toFixed(2))
+    setResult(futureValue)
+    console.log(result)
   }
   const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTypeInvest(e.target.value);
@@ -32,7 +35,7 @@ const Hero: React.FC = () => {
   };
   
   return (
-    <div className="flex py-4">
+    <div className="flex py-4 ">
       <div className=" flex flex-col  w-11/12 m-auto bg-purple-50 rounded-lg px-6 py-4 gap-2">
         <h1 className="font-Heebo font-bold text-2xl">Calculadora de Investimentos Online</h1>
         <div className="flex flex-col gap-2 ">
@@ -131,6 +134,7 @@ const Hero: React.FC = () => {
             </form>
         </div>
       </div>
+      
     </div>
   );
 };
