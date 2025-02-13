@@ -125,7 +125,7 @@ const Hero: React.FC = () => {
             </div>
            <div className="flex justify-center flex-col py-4 gap-5">
             <button type="submit"
-          className="bg-purple-500 py-4 rounded-lg text-white px-20 text-lg font-bold">Calcular</button>
+          className="bg-purple-500 py-4 rounded-lg text-white px-20 text-lg font-bold">Calcular </button>
             <button className="border-none bg-transparent text-purple-500 font-bold">LIMPAR</button>
             </div>
             </form>
