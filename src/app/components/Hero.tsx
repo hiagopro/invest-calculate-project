@@ -1,15 +1,17 @@
 "use client"
 import React, { useState } from "react";
 import Result from "./Result";
+
 // import { Container } from './styles';
 
-const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,setInvestmentInitialOn, setRentabilidade, setDurationOn, setInvestmentMonthlyOn }) => {
+const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,
+  setInvestmentInitialOn, setRentabilidade, setDurationOn, setInvestmentMonthlyOn, setValueInvested, setFees, setShowResult, showResult }) => {
   const [investmentInitial, setInvestmentInitial] = useState(0);
   const [investmentMonthly, setInvestmentMonthly] = useState(0);
   const [duration, setDuration] = useState(0);
   const [durationUnit, setDurationUnit] = useState("months");
   const [rate, setRate] = useState(0);
- 
+  
   const [resultOn, setResultOn] = useState(false)
 
   let  futureValue
@@ -24,9 +26,13 @@ const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,setI
     
      futureValue = investmentInitial * Math.pow(1 + monthlyRate, totalMonths) +
                         investmentMonthly * ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate);
+    const valueinvested = futureValue - investmentInitial + totalMonths*monthlyRate
+    const fees =  investmentInitial + totalMonths*monthlyRate
+    setFees(fees.toFixed(2))
+    setValueInvested(valueinvested)
     setInvestmentMonthlyOn(investmentMonthly)
     setInvestmentInitialOn(investmentInitial)
-    setRentabilidade(monthlyRate)
+    setRentabilidade(rate)
     setDurationOn(totalMonths)
     setResult(futureValue)
     console.log(result)
@@ -39,6 +45,25 @@ const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,setI
     setPreorpos(e.target.value);
     console.log(e.target.value)
   }
+  const ShowResult =()=>{
+    setShowResult(true)
+    const resultSection = document.getElementById('result');
+    resultSection.scrollIntoView({ behavior: 'smooth' });
+    
+  }
+  const handleClear = () => {
+    setInvestmentInitial(0);
+    setInvestmentMonthly(0);
+    setDuration(0);
+    setDurationUnit("months");
+    setRate(0);
+    setPreorpos("");
+    setTypeInvestFinal("");
+    setResult(null);
+    setShowResult(false);
+    setFees(0);
+    setValueInvested(0);
+  };
   
   return (
     <div className="flex py-4 ">
@@ -134,8 +159,8 @@ const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,setI
             </div>
            <div className="flex justify-center flex-col py-4 gap-5">
             <button type="submit"
-          className="bg-purple-500 py-4 rounded-lg text-white px-20 text-lg font-bold">Calcular </button>
-            <button className="border-none bg-transparent text-purple-500 font-bold">LIMPAR</button>
+          className="bg-purple-500 py-4 rounded-lg text-white px-20 text-lg font-bold" onClick={ShowResult} >Calcular  </button>
+            <button id="result" className="border-none bg-transparent text-purple-500 font-bold" onClick={handleClear}>LIMPAR</button>
             </div>
             </form>
         </div>
