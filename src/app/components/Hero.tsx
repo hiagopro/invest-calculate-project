@@ -3,16 +3,15 @@ import React, { useState } from "react";
 import Result from "./Result";
 // import { Container } from './styles';
 
-const Hero: React.FC = ({setResult, result}) => {
+const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,setInvestmentInitialOn, setRentabilidade, setDurationOn, setInvestmentMonthlyOn }) => {
   const [investmentInitial, setInvestmentInitial] = useState(0);
   const [investmentMonthly, setInvestmentMonthly] = useState(0);
   const [duration, setDuration] = useState(0);
   const [durationUnit, setDurationUnit] = useState("months");
   const [rate, setRate] = useState(0);
-  const [typeInvest,setTypeInvest] = useState('')
-  const [preorpos, setPreorpos] = useState('')
-  const [resultOn, setResultOn] = useState(false)
  
+  const [resultOn, setResultOn] = useState(false)
+
   let  futureValue
   const handlecalculate = (e: React.FormEvent) => {
     e.preventDefault()
@@ -25,14 +24,21 @@ const Hero: React.FC = ({setResult, result}) => {
     
      futureValue = investmentInitial * Math.pow(1 + monthlyRate, totalMonths) +
                         investmentMonthly * ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate);
-
+    setInvestmentMonthlyOn(investmentMonthly)
+    setInvestmentInitialOn(investmentInitial)
+    setRentabilidade(monthlyRate)
+    setDurationOn(totalMonths)
     setResult(futureValue)
     console.log(result)
   }
   const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTypeInvest(e.target.value);
-  
+    setTypeInvestFinal(e.target.value);
+    console.log(e.target.value)
   };
+  const handlePreorpos = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPreorpos(e.target.value);
+    console.log(e.target.value)
+  }
   
   return (
     <div className="flex py-4 ">
@@ -66,17 +72,17 @@ const Hero: React.FC = ({setResult, result}) => {
             <form action="" className="flex gap-4 flex-col">
               <div className="flex  gap-2">
                 {" "}
-                <input type="radio" name="preouPos" />
+                <input type="radio" name="preouPos" value="PRÉ" onChange={handlePreorpos}/>
                 <label htmlFor="Pre">PRÉ</label>
               </div>
               <div className="flex  gap-2">
                 {" "}
-                <input type="radio" name="preouPos" />
+                <input type="radio" name="preouPos" value="PÓS" onChange={handlePreorpos}/>
                 <label htmlFor="PÓS">PÓS</label>
               </div>
               <div className="flex  gap-2">
                 {" "}
-                <input type="radio" name="preouPos" />
+                <input type="radio" name="preouPos" value="IPCA" onChange={handlePreorpos}/>
                 <label htmlFor="IPCA">IPCA</label>
               </div>
             </form>
