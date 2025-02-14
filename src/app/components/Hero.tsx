@@ -3,9 +3,24 @@ import React, { useEffect, useState } from "react";
 
 
 // import { Container } from './styles';
-
-const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,
-  setInvestmentInitialOn, setRentabilidade, setDurationOn, setInvestmentMonthlyOn, setValueInvested,preorpos, setFees, setShowResult, showResult, typeInvestFinal }:any) => {
+interface HeroProps {
+  setResult: React.Dispatch<React.SetStateAction<number>>;
+  result: number;
+  setTypeInvestFinal: React.Dispatch<React.SetStateAction<string>>;
+  setPreorpos: React.Dispatch<React.SetStateAction<string>>;
+  setInvestmentInitialOn: React.Dispatch<React.SetStateAction<number>>;
+  setRentabilidade: React.Dispatch<React.SetStateAction<number>>;
+  setDurationOn: React.Dispatch<React.SetStateAction<number>>;
+  setInvestmentMonthlyOn: React.Dispatch<React.SetStateAction<number>>;
+  setValueInvested: React.Dispatch<React.SetStateAction<number>>;
+  setFees: React.Dispatch<React.SetStateAction<number>>;
+  setShowResult: React.Dispatch<React.SetStateAction<boolean>>;
+  preorpos: string;
+  showResult: boolean;
+  typeInvestFinal: string;
+}
+const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPreorpos,
+  setInvestmentInitialOn, setRentabilidade, setDurationOn, setInvestmentMonthlyOn, setValueInvested,preorpos, setFees, setShowResult, showResult, typeInvestFinal }) => {
   const [investmentInitial, setInvestmentInitial] = useState(0);
   const [investmentMonthly, setInvestmentMonthly] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -28,7 +43,7 @@ const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,
                         investmentMonthly * ((Math.pow(1+ monthlyRate, totalMonths) -1) / monthlyRate);
     const valueinvested = investmentInitial   +  totalMonths*investmentMonthly
     const fees =  futureValue -valueinvested
-    setFees(fees.toFixed(2))
+    setFees(fees)
     setValueInvested(valueinvested)
     setInvestmentMonthlyOn(investmentMonthly)
     setInvestmentInitialOn(investmentInitial)
@@ -63,7 +78,7 @@ const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,
     setRate(0);
     setPreorpos("");
     setTypeInvestFinal("");
-    setResult(null);
+    setResult(0);
     setShowResult(false);
     setFees(0);
     setValueInvested(0);

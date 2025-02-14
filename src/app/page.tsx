@@ -4,16 +4,16 @@ import Result from "./components/Result";
 import React, { useState } from "react";
 
 export default function Home() {
-  const [result, setResult] = useState(0)
-  const [typeInvestFinal, setTypeInvestFinal] =useState('')
-  const [preorpos, setPreorpos] = useState('')
-  const [investmentInitial, setInvestmentInitial] = useState(0)
-  const [investmentMonthly, setInvestmentMonthly]= useState(0)
-  const [duration, setDuration] = useState(0)
-  const [rentabilidade, setRentabilidade]= useState(0)
-  const [valueinvested, setValueInvested] = useState(0)
-  const [fees, setFees] = useState(0)
-  const [showResult, setShowResult] = useState(false)
+  const [result, setResult] = useState<number>(0);
+  const [typeInvestFinal, setTypeInvestFinal] = useState<string>('');
+  const [preorpos, setPreorpos] = useState<string>('');
+  const [investmentInitial, setInvestmentInitial] = useState<number>(0);
+  const [investmentMonthly, setInvestmentMonthly] = useState<number>(0);
+  const [duration, setDuration] = useState<number>(0);
+  const [rentabilidade, setRentabilidade] = useState<number>(0);
+  const [valueinvested, setValueInvested] = useState<number>(0);
+  const [fees, setFees] = useState<number>(0);
+  const [showResult, setShowResult] = useState<boolean>(false);
    
   return (
     <div className="pb-7">
@@ -21,7 +21,7 @@ export default function Home() {
      setInvestmentInitialOn={setInvestmentInitial} setRentabilidade={setRentabilidade} setDurationOn={setDuration}
      typeInvestFinal={typeInvestFinal}
       setInvestmentMonthlyOn={setInvestmentMonthly} setValueInvested={setValueInvested} preorpos={preorpos} setFees ={setFees} setShowResult={setShowResult} showResult={showResult} />
-    {showResult && (<Result result={result} preorpos={preorpos} typeInvestFinal={typeInvestFinal} 
+    {showResult && (<Result result ={result} preorpos={preorpos} typeInvestFinal={typeInvestFinal} 
     investmentInitial={investmentInitial} duration={duration} rentabilidade={rentabilidade} investmentMonthly={investmentMonthly} valueinvested={valueinvested} fees={fees}/>)  }
     
     </div>
