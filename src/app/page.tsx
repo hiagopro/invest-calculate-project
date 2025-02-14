@@ -14,11 +14,13 @@ export default function Home() {
   const [valueinvested, setValueInvested] = useState(0)
   const [fees, setFees] = useState(0)
   const [showResult, setShowResult] = useState(false)
+   
   return (
     <div className="pb-7">
     <Hero setResult={setResult} result={result} setTypeInvestFinal={setTypeInvestFinal} setPreorpos={setPreorpos}
      setInvestmentInitialOn={setInvestmentInitial} setRentabilidade={setRentabilidade} setDurationOn={setDuration}
-      setInvestmentMonthlyOn={setInvestmentMonthly} setValueInvested={setValueInvested} setFees ={setFees} setShowResult={setShowResult} showResult={showResult}/>
+     typeInvestFinal={typeInvestFinal}
+      setInvestmentMonthlyOn={setInvestmentMonthly} setValueInvested={setValueInvested} preorpos={preorpos} setFees ={setFees} setShowResult={setShowResult} showResult={showResult} />
     {showResult && (<Result result={result} preorpos={preorpos} typeInvestFinal={typeInvestFinal} 
     investmentInitial={investmentInitial} duration={duration} rentabilidade={rentabilidade} investmentMonthly={investmentMonthly} valueinvested={valueinvested} fees={fees}/>)  }
     

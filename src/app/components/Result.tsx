@@ -1,8 +1,8 @@
 "use client"
 const Result: React.FC = ({result, preorpos, typeInvestFinal, rentabilidade, duration, investmentInitial, investmentMonthly, valueinvested, fees}) => {
     return (
-      <div className="flex flex-col justify-center px-6 bg-purple-200 py-8 w-11/12 m-auto rounded-lg">
-        <h1 className=" py-5 text-xl font-bold">Minha simulacao</h1>
+      <div className="flex flex-col justify-center px-6 bg-purple-50 py-8 w-11/12 m-auto rounded-lg">
+        <h1 className=" py-5 text-xl font-bold">Minha simulação</h1>
         
       <div className=" grid grid-cols-2 gap-3">
         <div className="bg-white flex flex-col h-16 rounded-sm">

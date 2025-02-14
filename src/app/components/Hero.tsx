@@ -1,33 +1,33 @@
 "use client"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Result from "./Result";
 
 // import { Container } from './styles';
 
 const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,
-  setInvestmentInitialOn, setRentabilidade, setDurationOn, setInvestmentMonthlyOn, setValueInvested, setFees, setShowResult, showResult }) => {
+  setInvestmentInitialOn, setRentabilidade, setDurationOn, setInvestmentMonthlyOn, setValueInvested,preorpos, setFees, setShowResult, showResult, typeInvestFinal }) => {
   const [investmentInitial, setInvestmentInitial] = useState(0);
   const [investmentMonthly, setInvestmentMonthly] = useState(0);
   const [duration, setDuration] = useState(0);
   const [durationUnit, setDurationUnit] = useState("months");
   const [rate, setRate] = useState(0);
-  
+  const [anualormensal, setAnulormensal]= useState("anual")
   const [resultOn, setResultOn] = useState(false)
 
   let  futureValue
   const handlecalculate = (e: React.FormEvent) => {
     e.preventDefault()
     console.log(investmentInitial)
-    console.log(investmentMonthly)
+    console.log(rate)
 
     const totalMonths = durationUnit === "years" ? duration * 12 : duration;
-    const monthlyRate = rate / 100 / 12;
+    const monthlyRate = anualormensal === "anual" ? rate / 100 / 12 : rate /100;
 
     
-     futureValue = investmentInitial * Math.pow(1 + monthlyRate, totalMonths) +
-                        investmentMonthly * ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate);
-    const valueinvested = futureValue - investmentInitial + totalMonths*monthlyRate
-    const fees =  investmentInitial + totalMonths*monthlyRate
+     futureValue =  investmentInitial * Math.pow(1 + monthlyRate, totalMonths ) +
+                        investmentMonthly * ((Math.pow(1+ monthlyRate, totalMonths) -1) / monthlyRate);
+    const valueinvested = investmentInitial   +  totalMonths*investmentMonthly
+    const fees =  futureValue -valueinvested
     setFees(fees.toFixed(2))
     setValueInvested(valueinvested)
     setInvestmentMonthlyOn(investmentMonthly)
@@ -46,9 +46,13 @@ const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,
     console.log(e.target.value)
   }
   const ShowResult =()=>{
-    setShowResult(true)
-    const resultSection = document.getElementById('result');
-    resultSection.scrollIntoView({ behavior: 'smooth' });
+    if( investmentInitial > 0 && investmentMonthly > 0 && rate > 0 && duration > 0 && preorpos != '' && typeInvestFinal != '' ){
+      setShowResult(true)
+    }else{
+      alert('Preencha todos os campos')
+    }
+    
+    
     
   }
   const handleClear = () => {
@@ -64,6 +68,12 @@ const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,
     setFees(0);
     setValueInvested(0);
   };
+  useEffect(()=>{
+   if(showResult === true){
+     const resultSection = document.getElementById('result');
+    resultSection.scrollIntoView({ behavior: 'smooth' });
+   }
+  }, [showResult])
   
   return (
     <div className="flex py-4 ">
@@ -119,7 +129,7 @@ const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,
             <label htmlFor="" className="text-sm">investimento inicial</label>
             <div className="flex items-center border  border-gray-200 rounded-lg bg-gray-200">
               <span className="text-sm text-gray-900 mx-4 ">R$</span>
-              <input type="number" value={investmentInitial}
+              <input type="number" value={investmentInitial} required
           onChange={(e) => setInvestmentInitial(parseFloat(e.target.value))} className="flex-1   outline-none text-sm px-2 py-2 placeholder:" placeholder="0,00"/>
             </div>
             </div>
@@ -137,7 +147,7 @@ const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,
                 <input type="number" id="durationValue" className="flex-1  outline-none text-sm pl-2 py-2  "  value={duration}
           onChange={(e) => setDuration(parseInt(e.target.value))}
  placeholder="0" min="0"/>
-                <select id="durationUnit" className="ml-2 bg-transparent text-sm text-gray-700 border-none outline-none px-3 py-2 ">
+                <select onChange={(e) => setDurationUnit(e.target.value) } id="durationUnit" className="ml-2 bg-transparent text-sm text-gray-700 border-none outline-none px-3 py-2 ">
                 <option value="months">Meses</option>
 
                   <option value="years">Anos</option>
@@ -151,16 +161,16 @@ const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,
                 <span className="text-sm text-gray-900 px-4 bg-gray-200  py-2 rounded-s-lg">%</span>
                 <input type="number"  value={rate}
           onChange={(e) => setRate(parseFloat(e.target.value))} className="flex-1   outline-none text-sm  py-2 placeholder:" placeholder="0,00"/>
-                <select id="anualVariament" className="ml-2 bg-transparent text-sm text-gray-700 border-none outline-none px-3 py-2 ">
+                <select onChange={(e)=> setAnulormensal(e.target.value)} id="anualVariament" className="ml-2 bg-transparent text-sm text-gray-700 border-none outline-none px-3 py-2 ">
                   <option className="" value="years">Anual</option>
-                  <option className="" value="months">Mesal</option>
+                  <option className="" value="months">Mensal</option>
                 </select>
               </div>
             </div>
            <div className="flex justify-center flex-col py-4 gap-5">
             <button type="submit"
           className="bg-purple-500 py-4 rounded-lg text-white px-20 text-lg font-bold" onClick={ShowResult} >Calcular  </button>
-            <button id="result" className="border-none bg-transparent text-purple-500 font-bold" onClick={handleClear}>LIMPAR</button>
+            <button  className="border-none bg-transparent text-purple-500 font-bold" onClick={handleClear}>LIMPAR</button>
             </div>
             </form>
         </div>
