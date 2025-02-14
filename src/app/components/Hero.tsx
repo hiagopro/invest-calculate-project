@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import Result from "./Result";
+
 
 // import { Container } from './styles';
 
@@ -12,7 +12,7 @@ const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,
   const [durationUnit, setDurationUnit] = useState("months");
   const [rate, setRate] = useState(0);
   const [anualormensal, setAnulormensal]= useState("anual")
-  const [resultOn, setResultOn] = useState(false)
+  
 
   let  futureValue
   const handlecalculate = (e: React.FormEvent) => {
