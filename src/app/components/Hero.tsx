@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 // import { Container } from './styles';
 
 const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,
-  setInvestmentInitialOn, setRentabilidade, setDurationOn, setInvestmentMonthlyOn, setValueInvested,preorpos, setFees, setShowResult, showResult, typeInvestFinal }) => {
+  setInvestmentInitialOn, setRentabilidade, setDurationOn, setInvestmentMonthlyOn, setValueInvested,preorpos, setFees, setShowResult, showResult, typeInvestFinal }:any) => {
   const [investmentInitial, setInvestmentInitial] = useState(0);
   const [investmentMonthly, setInvestmentMonthly] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -70,7 +70,7 @@ const Hero: React.FC = ({setResult, result, setTypeInvestFinal, setPreorpos,
   };
   useEffect(()=>{
    if(showResult === true){
-     const resultSection = document.getElementById('result');
+     const resultSection:any = document.getElementById('result');
     resultSection.scrollIntoView({ behavior: 'smooth' });
    }
   }, [showResult])
