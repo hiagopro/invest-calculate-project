@@ -18,6 +18,7 @@ interface HeroProps {
   preorpos: string;
   showResult: boolean;
   typeInvestFinal: string;
+  
 }
 const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPreorpos,
   setInvestmentInitialOn, setRentabilidade, setDurationOn, setInvestmentMonthlyOn, setValueInvested,preorpos, setFees, setShowResult, showResult, typeInvestFinal }) => {
@@ -86,7 +87,9 @@ const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPr
   useEffect(()=>{
    if(showResult === true){
      const resultSection = document.getElementById('result');
-    resultSection.scrollIntoView({ behavior: 'smooth' });
+     if (resultSection) {
+      resultSection.scrollIntoView({ behavior: 'smooth' });
+    }
    }
   }, [showResult])
   
