@@ -21,12 +21,12 @@ interface HeroProps {
 }
 const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPreorpos,
   setInvestmentInitialOn, setRentabilidade, setDurationOn, setInvestmentMonthlyOn, setValueInvested,preorpos, setFees, setShowResult, showResult, typeInvestFinal }) => {
-  const [investmentInitial, setInvestmentInitial] = useState(0);
-  const [investmentMonthly, setInvestmentMonthly] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [durationUnit, setDurationUnit] = useState("months");
-  const [rate, setRate] = useState(0);
-  const [anualormensal, setAnulormensal]= useState("anual")
+  const [investmentInitial, setInvestmentInitial] = useState<number>(0);
+  const [investmentMonthly, setInvestmentMonthly] = useState<number>(0);
+  const [duration, setDuration] = useState<number>(0);
+  const [durationUnit, setDurationUnit] = useState<string>("months");
+  const [rate, setRate] = useState<number>(0);
+  const [anualormensal, setAnulormensal]= useState<string>("anual")
   
 
   let  futureValue
