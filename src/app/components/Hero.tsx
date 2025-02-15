@@ -85,7 +85,7 @@ const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPr
   };
   useEffect(()=>{
    if(showResult === true){
-     const resultSection:any = document.getElementById('result');
+     const resultSection = document.getElementById('result');
     resultSection.scrollIntoView({ behavior: 'smooth' });
    }
   }, [showResult])

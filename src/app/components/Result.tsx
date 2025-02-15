@@ -10,7 +10,7 @@ interface ResultProps {
   valueinvested: number;
   fees: number;
 }
-const Result: React.FC<ResultProps> = ({result, preorpos, typeInvestFinal, rentabilidade, duration, investmentInitial, investmentMonthly, valueinvested, fees}:any) => {
+const Result: React.FC<ResultProps> = ({result, preorpos, typeInvestFinal, rentabilidade, duration, investmentInitial, investmentMonthly, valueinvested, fees}) => {
     
   
   return (
