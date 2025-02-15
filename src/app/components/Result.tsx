@@ -55,7 +55,7 @@ const Result: React.FC<ResultProps> = ({result, preorpos, typeInvestFinal, renta
           </div>
           <div className="bg-white flex flex-col h-16 rounded-sm">
             <h1 className="bg-white flex flex-col h-16 m-auto">Valor em Juros </h1>
-            <p id="result" className="m-auto font-bold">{fees} R$</p>
+            <p id="result" className="m-auto font-bold">{fees.toFixed(2)} R$</p>
 
           </div>
         </div>
