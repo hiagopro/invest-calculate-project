@@ -162,11 +162,11 @@ const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPr
             <div>
               <label htmlFor="">Prazo</label>
               <div className="flex items-center border border-gray-300 rounded-lg ">
-                <input type="number" id="durationValue" className="flex-1  outline-none text-sm pl-2 py-2  "  value={duration}
+                <input type="number" id="durationValue" className=" flex-1  outline-none text-sm pl-2 py-2  "  value={duration}
           onChange={(e) => setDuration(parseInt(e.target.value))}
  placeholder="0" min="0"/>
-                <select onChange={(e) => setDurationUnit(e.target.value) } id="durationUnit" className="ml-2 bg-transparent text-sm text-gray-700 border-none outline-none px-3 py-2 ">
-                <option value="months">Meses</option>
+                <select onChange={(e) => setDurationUnit(e.target.value) } id="durationUnit" className=" ml-2 bg-transparent text-sm text-gray-700 border-none outline-none w-1/4 py-2  ">
+                <option value="months" className="">Meses</option>
 
                   <option value="years">Anos</option>
                 </select>
@@ -178,8 +178,8 @@ const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPr
               <div className="flex  items-center rounded-lg border border-gray-300 ltr">
                 <span className="text-sm text-gray-900 px-4 bg-gray-200  py-2 rounded-s-lg">%</span>
                 <input type="number"  value={rate}
-          onChange={(e) => setRate(parseFloat(e.target.value))} className="flex-1   outline-none text-sm  py-2 placeholder:" placeholder="0,00"/>
-                <select onChange={(e)=> setAnulormensal(e.target.value)} id="anualVariament" className="ml-2 bg-transparent text-sm text-gray-700 border-none outline-none px-3 py-2 ">
+          onChange={(e) => setRate(parseFloat(e.target.value))} className="flex-1   outline-none text-sm pl-2  py-2 placeholder:" placeholder="0,00"/>
+                <select onChange={(e)=> setAnulormensal(e.target.value)} id="anualVariament" className=" bg-transparent text-sm text-gray-700 border-none outline-none ml-2 py-2 w-1/4   ">
                   <option className="" value="years">Anual</option>
                   <option className="" value="months">Mensal</option>
                 </select>
