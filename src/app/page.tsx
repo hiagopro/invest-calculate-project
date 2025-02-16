@@ -16,7 +16,7 @@ export default function Home() {
   const [showResult, setShowResult] = useState<boolean>(false);
    
   return (
-    <div className="pb-7">
+    <div className="pb-7 bg-white">
     <Hero setResult={setResult} result={result} setTypeInvestFinal={setTypeInvestFinal} setPreorpos={setPreorpos}
      setInvestmentInitialOn={setInvestmentInitial} setRentabilidade={setRentabilidade} setDurationOn={setDuration}
      typeInvestFinal={typeInvestFinal}
