@@ -155,7 +155,7 @@ const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPr
             <label htmlFor="" className="text-sm text-black">investimento mensal</label>
             <div className="flex items-center border  border-gray-200 rounded-lg bg-gray-200">
               <span className="text-sm text-gray-900 mx-4 ">R$</span>
-              <input type="number" className="flex-1   outline-none text-sm px-2 py-2 placeholder:" value={investmentMonthly}
+              <input type="number" className="flex-1 text-black  outline-none text-sm px-2 py-2 placeholder:" value={investmentMonthly}
           onChange={(e) => setInvestmentMonthly(parseFloat(e.target.value))} placeholder="0,00"/>
             </div>
             </div>
