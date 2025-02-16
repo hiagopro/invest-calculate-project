@@ -99,44 +99,44 @@ const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPr
         <h1 className="font-Heebo font-bold text-2xl text-black">Calculadora de Investimentos Online</h1>
         <div className="flex flex-col gap-2 ">
           <div className="flex flex-col gap-4 pb-4">
-            <p>Tipo de investimento</p>
+            <p className="text-black">Tipo de investimento</p>
             <form action="" className="flex flex-col gap-2">
               <div className="flex gap-2">
                 <input type="radio" name="typeInvest" value="CDB/LC/Títulos públicos/Debêntures"
           onChange={handleRadioChange}/>
-                <label htmlFor="CDB/LC/Títulos públicos/Debêntures">
+                <label htmlFor="CDB/LC/Títulos públicos/Debêntures " className="text-black">
                   CDB/LC/Títulos públicos/Debêntures
                 </label>
               </div>
               <div className="flex gap-2">
                 <input type="radio" name="typeInvest" value="LCI/LCA"
-          onChange={handleRadioChange}/>
-                <label htmlFor="LCI/LCA">LCI/LCA</label>
+          onChange={handleRadioChange} />
+                <label className="text-black" htmlFor="LCI/LCA">LCI/LCA</label >
               </div>
               <div className="flex gap-2">
                 <input type="radio" name="typeInvest"  value="Tesouro"
           onChange={handleRadioChange}/>
-                <label htmlFor="Tesouro">Tesouro</label>
+                <label htmlFor="Tesouro" className="text-black">Tesouro</label>
               </div>
             </form>
           </div>
           <div className="flex flex-col gap-4 py-4">
-            <h1>É PRÉ fixado ou PÓS fixado?</h1>
+            <h1 className="text-black">É PRÉ fixado ou PÓS fixado?</h1>
             <form action="" className="flex gap-4 flex-col">
               <div className="flex  gap-2">
                 {" "}
                 <input type="radio" name="preouPos" value="PRÉ" onChange={handlePreorpos}/>
-                <label htmlFor="Pre">PRÉ</label>
+                <label htmlFor="Pre" className="text-black">PRÉ</label>
               </div>
               <div className="flex  gap-2">
                 {" "}
                 <input type="radio" name="preouPos" value="PÓS" onChange={handlePreorpos}/>
-                <label htmlFor="PÓS">PÓS</label>
+                <label htmlFor="PÓS" className="text-black">PÓS</label>
               </div>
               <div className="flex  gap-2">
                 {" "}
                 <input type="radio" name="preouPos" value="IPCA" onChange={handlePreorpos}/>
-                <label htmlFor="IPCA">IPCA</label>
+                <label htmlFor="IPCA" className="text-black">IPCA</label>
               </div>
             </form>
           </div>
@@ -144,7 +144,7 @@ const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPr
         <div>
             <form action="" className="flex flex-col  gap-6 " onSubmit={handlecalculate}>
            <div className="flex flex-col ">
-            <label htmlFor="" className="text-sm">investimento inicial</label>
+            <label htmlFor="" className="text-sm text-black">investimento inicial</label>
             <div className="flex items-center border  border-gray-200 rounded-lg bg-gray-200">
               <span className="text-sm text-gray-900 mx-4 ">R$</span>
               <input type="number" value={investmentInitial} required
@@ -152,7 +152,7 @@ const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPr
             </div>
             </div>
             <div className="flex flex-col ">
-            <label htmlFor="" className="text-sm">investimento mensal</label>
+            <label htmlFor="" className="text-sm text-black">investimento mensal</label>
             <div className="flex items-center border  border-gray-200 rounded-lg bg-gray-200">
               <span className="text-sm text-gray-900 mx-4 ">R$</span>
               <input type="number" className="flex-1   outline-none text-sm px-2 py-2 placeholder:" value={investmentMonthly}
@@ -168,7 +168,7 @@ const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPr
                 <select onChange={(e) => setDurationUnit(e.target.value) } id="durationUnit" className=" ml-2 bg-transparent text-sm text-gray-700 border-none outline-none w-1/4 py-2  ">
                 <option value="months" className="">Meses</option>
 
-                  <option value="years">Anos</option>
+                  <option value="years" >Anos</option>
                 </select>
               </div>
             </div>
