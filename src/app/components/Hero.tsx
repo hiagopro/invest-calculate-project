@@ -187,7 +187,7 @@ const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPr
             </div>
            <div className="flex justify-center flex-col py-4 gap-5">
             <button type="submit"
-          className="bg-purple-500 py-4 rounded-lg text-white px-20 text-lg font-bold" onClick={ShowResult} >Calcular  </button>
+          className="bg-purple-500 py-4 rounded-lg text-white  text-lg font-bold md:w-1/4 md:m-auto md:align-center" onClick={ShowResult} >Calcular</button>
             <button  className="border-none bg-transparent text-purple-500 font-bold" onClick={handleClear}>LIMPAR</button>
             </div>
             </form>
