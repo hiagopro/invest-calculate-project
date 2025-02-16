@@ -47,15 +47,15 @@ const Result: React.FC<ResultProps> = ({result, preorpos, typeInvestFinal, renta
         <div className="grid grid-cols-1 gap-3 m-auto w-11/12 rounded-sm">
           <div className="bg-white flex flex-col h-16 ">
             <h1 className="bg-white flex flex-col h-16 m-auto text-black">Valor Total Bruto</h1>
-            <p className="m-auto font-bold">{result.toFixed(2)} R$</p>
+            <p className="m-auto font-bold text-black">{result.toFixed(2)} R$</p>
           </div>
           <div className="bg-white flex flex-col h-16 rounded-sm">
             <h1 className="bg-white flex flex-col h-16 m-auto text-black">Valor total Investido </h1>
-            <p className="m-auto font-bold">{valueinvested.toFixed(2)} R$</p>
+            <p className="m-auto font-bold text-black">{valueinvested.toFixed(2)} R$</p>
           </div>
           <div className="bg-white flex flex-col h-16 rounded-sm">
             <h1 className="bg-white flex flex-col h-16 m-auto text-black">Valor em Juros </h1>
-            <p id="result" className="m-auto font-bold">{fees.toFixed(2)} R$</p>
+            <p id="result" className="m-auto font-bold text-black">{fees.toFixed(2)} R$</p>
 
           </div>
         </div>

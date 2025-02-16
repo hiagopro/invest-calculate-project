@@ -148,7 +148,7 @@ const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPr
             <div className="flex items-center border  border-gray-200 rounded-lg bg-gray-200">
               <span className="text-sm text-gray-900 mx-4 ">R$</span>
               <input type="number" value={investmentInitial} required
-          onChange={(e) => setInvestmentInitial(parseFloat(e.target.value))} className="flex-1   outline-none text-sm px-2 py-2 placeholder:" placeholder="0,00"/>
+          onChange={(e) => setInvestmentInitial(parseFloat(e.target.value))} className="flex-1 text-black   outline-none text-sm px-2 py-2 placeholder:" placeholder="0,00"/>
             </div>
             </div>
             <div className="flex flex-col ">
@@ -160,9 +160,9 @@ const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPr
             </div>
             </div>
             <div>
-              <label htmlFor="">Prazo</label>
+              <label htmlFor="" className=" text-black">Prazo</label>
               <div className="flex items-center border border-gray-300 rounded-lg ">
-                <input type="number" id="durationValue" className=" flex-1  outline-none text-sm pl-2 py-2  "  value={duration}
+                <input type="number" id="durationValue" className=" flex-1  outline-none text-sm pl-2 py-2 text-black "  value={duration}
           onChange={(e) => setDuration(parseInt(e.target.value))}
  placeholder="0" min="0"/>
                 <select onChange={(e) => setDurationUnit(e.target.value) } id="durationUnit" className=" ml-2 bg-transparent text-sm text-gray-700 border-none outline-none w-1/4 py-2  ">
@@ -174,11 +174,11 @@ const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPr
             </div>
             
             <div className="flex flex-col">
-              <label htmlFor="" className="pb-3">Rentabilidade</label>
+              <label htmlFor="" className="pb-3 text-black">Rentabilidade</label>
               <div className="flex  items-center rounded-lg border border-gray-300 ltr">
                 <span className="text-sm text-gray-900 px-4 bg-gray-200  py-2 rounded-s-lg">%</span>
                 <input type="number"  value={rate}
-          onChange={(e) => setRate(parseFloat(e.target.value))} className="flex-1   outline-none text-sm pl-2  py-2 placeholder:" placeholder="0,00"/>
+          onChange={(e) => setRate(parseFloat(e.target.value))} className="flex-1 text-black   outline-none text-sm pl-2  py-2 placeholder:" placeholder="0,00"/>
                 <select onChange={(e)=> setAnulormensal(e.target.value)} id="anualVariament" className=" bg-transparent text-sm text-gray-700 border-none outline-none ml-2 py-2 w-1/4   ">
                   <option className="" value="years">Anual</option>
                   <option className="" value="months">Mensal</option>
