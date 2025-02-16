@@ -96,7 +96,7 @@ const Hero: React.FC<HeroProps> = ({setResult, result, setTypeInvestFinal, setPr
   return (
     <div className="flex py-4 ">
       <div className=" flex flex-col  w-11/12 m-auto bg-purple-50 rounded-lg px-6 py-4 gap-2">
-        <h1 className="font-Heebo font-bold text-2xl">Calculadora de Investimentos Online</h1>
+        <h1 className="font-Heebo font-bold text-2xl text-black">Calculadora de Investimentos Online</h1>
         <div className="flex flex-col gap-2 ">
           <div className="flex flex-col gap-4 pb-4">
             <p>Tipo de investimento</p>
